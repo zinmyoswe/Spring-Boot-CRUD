@@ -8,41 +8,40 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>New Product Add</title>
   </head>
   <body>
   <div class="container">
   <div class="row">
-  <div class="col-lg-9 offset2">
-    <h1>Product List</h1>
-    
-    <a href="new">New Product</a>
-    <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">ProductID</th>
-      <th scope="col">Name</th>
-      <th scope="col">Brand</th>
-      <th scope="col">Made In</th>
-      <th scope="col">Price</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr th:each="product : ${listProducts}">
-      <td th:text="${product.id}">Product ID</td>
-      <td th:text="${product.name}">Name</td>
-      <td th:text="${product.brand}">Brand</td>
-      <td th:text="${product.madein}">Made in</td>
-      <td th:text="${product.price}">Price</td>
-      <td style="width: 250px">
-      	<a href="" class="btn btn-info">Update</a>
-      	<a href="" class="btn btn-danger">Delete</a>
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
+  <div class="col-lg-8 offset2">
+  	<h1>Create New Product</h1>
+  	<br/>
+  	
+  	<form action="#" method="post" th:action="@{/save}" th:object="${product}">
+  	
+		  <div class="form-group">
+		    <label for="productname">Product Name</label>
+		    <input type="text" class="form-control" id="productname" th:field="*{name}">
+		  </div>
+		  
+		  <div class="form-group">
+		    <label for="brand">Brand</label>
+		    <input type="text" class="form-control" id="brand" th:field="*{brand}">
+		  </div>
+		  
+		  <div class="form-group">
+		    <label for="madein">Made In</label>
+		    <input type="text" class="form-control" id="madein" th:field="*{madein}">
+		  </div>
+		  
+		  <div class="form-group">
+		    <label for="price">Price</label>
+		    <input type="text" class="form-control" id="price" th:field="*{price}">
+		  </div>
+		  
+		 
+		  <button type="submit" class="btn btn-primary">Submit</button>
+  	</form>
 </div>
   </div></div>
     <!-- Optional JavaScript -->
